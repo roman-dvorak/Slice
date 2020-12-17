@@ -6,6 +6,10 @@ inputs:
     description: 'Configuration'
     required: true
     default: 'slice.yml'
+  printer:
+    description: 'Printer'
+    required: true
+    default: 'default_printer.ini'
   src_folder:
     description: 'Folder with STL/AMF files'
     required: false
@@ -17,9 +21,9 @@ inputs:
 runs:
   using: "docker"
   image: "Dockerfile"
-  args:
-  - "/home/slice.py"
-  - "/github/workspace/${{ inputs.configuration }}"
+  #args:
+  #- "/home/slice.py"
+  #- "/github/workspace/${{ inputs.configuration }}"
   #- "--config=${{ github.workspace }}/${{ inputs.configuration }}"
   #- "--src_folder=${{ github.workspace }}/${{ inputs.src_folder }}"
   #- "--dst_folder=${{ github.workspace }}/${{ inputs.dst_folder }}"
