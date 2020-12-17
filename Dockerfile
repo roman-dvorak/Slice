@@ -2,7 +2,7 @@ FROM ubuntu:latest
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update -y; apt-get install -y slic3r
-RUN pip3 install yaml
+RUN apt-get install -y python3-yaml
 RUN slic3r --version
 
 ADD slice.py /home/slice.py
