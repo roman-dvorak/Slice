@@ -1,0 +1,11 @@
+name: STL and AMF Slicing
+author: Roman Dvorak
+description: Slice your models
+inputs:
+  folder:
+    description: 'Folder with STL/AMF files'
+    required: false
+    default: 'STL'
+runs:
+  using: python
+  main: slice.py
