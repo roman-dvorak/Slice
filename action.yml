@@ -2,17 +2,20 @@ name: STL and AMF Slicing
 author: Roman Dvorak
 description: Slice your models
 inputs:
-  folder:
+  src_folder:
     description: 'Folder with STL/AMF files'
     required: false
     default: 'STL'
+  dst_folder:
+    description: 'Output'
+    required: false
+    default: 'gcode'
 runs:
   using: "docker"
   image: "Dockerfile"
   args:
-  - "file.yml"
-  # pre-entrypoint: 'aaa.sh'
-  # entrypoint: 'python3 /home/slice.py'
+  - ${{ inputs.src_folder }}
+  - ${{ inputs.dst_folder }}
 branding:
   icon: 'layers'  
   color: 'orange'
