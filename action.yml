@@ -10,9 +10,9 @@ runs:
   using: "docker"
   image: "Dockerfile"
   args:
-  - 'test'
+    source: "file.yml"
   # pre-entrypoint: 'aaa.sh'
-  # entrypoint: 'slice.py'
+  entrypoint: 'python3 /home/slice.py'
 branding:
   icon: 'layers'  
   color: 'orange'
