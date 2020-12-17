@@ -5,6 +5,8 @@ tree /github
 cd /github/workspace
 
 git status
+git diff --name-only HEAD^
+
 git log
 FILES=$(git diff --name-only HEAD~1 | sort -u | grep '.stl\|.amf\|.STL\|.AMF')
 
