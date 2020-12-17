@@ -12,7 +12,7 @@ runs:
   args:
   - "file.yml"
   # pre-entrypoint: 'aaa.sh'
-  entrypoint: 'python3 /home/slice.py'
+  # entrypoint: 'python3 /home/slice.py'
 branding:
   icon: 'layers'  
   color: 'orange'
