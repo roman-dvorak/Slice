@@ -1,8 +1,7 @@
 FROM ubuntu:latest
 ENV DEBIAN_FRONTEND noninteractive
 
-#RUN apt-get update -y
-RUN apt-get install -y slic3r
+RUN apt-get update -y; apt-get install -y slic3r
 RUN slic3r --version
 
 ADD slice.py /slice.py
