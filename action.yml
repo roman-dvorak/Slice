@@ -19,11 +19,11 @@ runs:
   image: "Dockerfile"
   args:
   - "/home/slice.py"
-  - "$GITHUB_WORKSPACE/${{ inputs.configuration }}"
+  - "${{ github.workspace }}/${{ inputs.configuration }}"
   # dalsi radky funguji, v pythonu neni implementovany praser
-  #- "--config=$GITHUB_WORKSPACE/${{ inputs.configuration }}"
-  #- "--src_folder=$GITHUB_WORKSPACE/${{ inputs.src_folder }}"
-  #- "--dst_folder=$GITHUB_WORKSPACE/${{ inputs.dst_folder }}"
+  #- "--config=${{ github.workspace }}/${{ inputs.configuration }}"
+  #- "--src_folder=${{ github.workspace }}/${{ inputs.src_folder }}"
+  #- "--dst_folder=${{ github.workspace }}/${{ inputs.dst_folder }}"
 branding:
   icon: 'layers'  
   color: 'orange'
