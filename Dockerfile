@@ -1,4 +1,4 @@
-FROM ubuntu:latest-slim
+FROM ubuntu:latest
 
 RUN sudo apt-get update -y
 RUN sudo apt-get install -y slic3r
