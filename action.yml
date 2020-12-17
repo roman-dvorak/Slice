@@ -19,9 +19,9 @@ runs:
   image: "Dockerfile"
   args:
   - "/home/slice.py"
-  - "--config=${{GITHUB_WORKSPACE}}/${{ inputs.configuration }}"
-  - "--src_folder=${{GITHUB_WORKSPACE}}/${{ inputs.src_folder }}"
-  - "--dst_folder=${{GITHUB_WORKSPACE}}/${{ inputs.dst_folder }}"
+  - "--config=$GITHUB_WORKSPACE/${{ inputs.configuration }}"
+  - "--src_folder=$GITHUB_WORKSPACE/${{ inputs.src_folder }}"
+  - "--dst_folder=$GITHUB_WORKSPACE/${{ inputs.dst_folder }}"
 branding:
   icon: 'layers'  
   color: 'orange'
