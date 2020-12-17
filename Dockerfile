@@ -7,7 +7,7 @@ RUN slic3r --version
 
 ADD slice.py /home/slice.py
 #CMD ["/home/slice.py"]
-ENTRYPOINT ["python3 COPY entrypoint.sh /entrypoint.sh"]
+ENTRYPOINT ["python3 /home/slice.py"]
 
 # ADD entrypoint.sh /entrypoint.sh
 # RUN chmod +x /entrypoint.sh
