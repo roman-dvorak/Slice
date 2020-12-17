@@ -13,3 +13,6 @@ runs:
   - 'test'
   # pre-entrypoint: 'aaa.sh'
   entrypoint: 'slice.py'
+branding:
+  icon: 'layers'  
+  color: 'orange'
