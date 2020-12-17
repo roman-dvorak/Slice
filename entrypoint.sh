@@ -1,7 +1,7 @@
 #!/bin/sh -l
 
 echo "promenne"
-( set -o posix ; set ) | grep 'git\|GIT'
+echo $(compgen -v | grep GIT)
 
 #cd /github/worspace
 
