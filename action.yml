@@ -2,10 +2,14 @@ name: STL and AMF Slicing
 author: Roman Dvorak
 description: Slice your models
 inputs:
+  configuration:
+    description: 'Configuration'
+    required: false
+    default: 'slice.yml'
   src_folder:
     description: 'Folder with STL/AMF files'
     required: false
-    default: 'STL'
+    default: 'stl'
   dst_folder:
     description: 'Output'
     required: false
@@ -15,8 +19,9 @@ runs:
   image: "Dockerfile"
   args:
   - "/home/slice.py"
-  - ${{ inputs.src_folder }}
-  - ${{ inputs.dst_folder }}
+  - "--config=${{GITHUB_WORKSPACE}}/${{ inputs.configuration }}"
+  - "--src_folder=${{GITHUB_WORKSPACE}}/${{ inputs.src_folder }}"
+  - "--dst_folder=${{GITHUB_WORKSPACE}}/${{ inputs.dst_folder }}"
 branding:
   icon: 'layers'  
   color: 'orange'
