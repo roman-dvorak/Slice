@@ -8,6 +8,7 @@ mkdir out/gcode
 mkdir out/ini
 
 FILES=$(git diff --name-only HEAD~1 | sort -u | grep '.stl\|.amf\|.STL\|.AMF');
+FILES="/hw/CAD/stl/RPM_case.stl";
 
 CFG='slice.yml';
 WHITEPATH=$(cat slice.yml | shyaml get-values path);
@@ -20,8 +21,8 @@ for file in $FILES; do
   # otestovat, jestli soubor je na whitelistu? 
   echo "spojit soubory" $CONFIG $PRINTER "pro" $file
   echo "vyslicovat spojeny"
-  echo "" > out/gcode/$(base $file).gcode
-  echo "" > out/ini/$(base $file).ini
+  echo "" > out/gcode/$(base $file).gcode;
+  echo "" > out/ini/$(base $file).ini;
   #echo "" > out/gcode/$file.gcode
   #echo "" > out/ini/$file.ini
   
