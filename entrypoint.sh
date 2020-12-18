@@ -8,8 +8,8 @@ CFG='slice.yml';
 WHITEPATH=$(cat slice.yml | shyaml get-values path);
 
 for file in $FILES; do
-  PRINTER=$(cat slice.yml | shyaml get-value default.printer)
   CONFIG=$(cat slice.yml | shyaml get-value default.config)
+  PRINTER=$(dirname $(cat slice.yml | shyaml get-value default.config))"/printer."$(cat slice.yml | shyaml get-value default.printer))".ini"
   
   echo "Changed sliceable file:" $file;
   # otestovat, jestli soubor je na whitelistu? 
