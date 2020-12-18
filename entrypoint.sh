@@ -1,4 +1,5 @@
 #!/bin/sh -l
+echo "Spoustim s nastavenim" $1
 
 cd /github/workspace
 
@@ -9,7 +10,7 @@ WHITEPATH=$(cat slice.yml | shyaml get-values path);
 
 for file in $FILES; do
   CONFIG=$(cat slice.yml | shyaml get-value default.config);
-  PRINTER=$(dirname $(cat slice.yml | shyaml get-value default.config))"/printer."$(cat slice.yml | shyaml get-value default.printer)".ini";
+  PRINTER=$(dirname $(cat slice.yml | shyaml get-value default.config))"/printer."$1".ini";
   
   echo "Changed sliceable file:" $file;
   # otestovat, jestli soubor je na whitelistu? 
