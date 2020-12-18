@@ -20,9 +20,9 @@ for file in $FILES; do
   # otestovat, jestli soubor je na whitelistu? 
   echo "spojit soubory" $CONFIG $PRINTER "pro" $file
   echo "vyslicovat spojeny"
-  #echo "" > out/gcode/$(filename $file).gcode
-  #echo "" > out/ini/$(filename $file).ini
-  echo "" > out/gcode/$file.gcode
-  echo "" > out/ini/$file.ini
+  echo "" > out/gcode/$(base $file).gcode
+  echo "" > out/ini/$(base $file).ini
+  #echo "" > out/gcode/$file.gcode
+  #echo "" > out/ini/$file.ini
   
 done
