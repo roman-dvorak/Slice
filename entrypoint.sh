@@ -6,7 +6,17 @@ cd /github/workspace
 
 FILES=$(git diff --name-only HEAD~1 | sort -u | grep '.stl\|.amf\|.STL\|.AMF');
 
+CFG='slice.yml';
+WHITEPATH=$(cat slice.yml | shyaml get-values path);
+
 for file in $FILES; do
-  echo "Changed sliceable file:" $FILES;
+  PRINTER=$(cat slice.yml | shyaml get-value default.printer)
+  CONFIG=$(cat slice.yml | shyaml get-value default.config)
+  
+  echo "Changed sliceable file:" $file;
+  # otestovat, jestli soubor je na whitelistu? 
+  echo "spojit soubory" $CONFIG $PRINTER "pro" $file
+  echo "vyslicovat spojeny"
+  
   
 done
