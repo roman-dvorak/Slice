@@ -23,7 +23,7 @@ runs:
   image: "Dockerfile"
   args:
   #- "/home/slice.py"
-    - "${{ inputs.printer }}"
+  - "${{ inputs.printer }}"
   #- "--config=${{ github.workspace }}/${{ inputs.configuration }}"
   #- "--src_folder=${{ github.workspace }}/${{ inputs.src_folder }}"
   #- "--dst_folder=${{ github.workspace }}/${{ inputs.dst_folder }}"
