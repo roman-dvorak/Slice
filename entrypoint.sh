@@ -23,7 +23,7 @@ for file in $FILES; do
   echo "Changed sliceable file:" $file;
   # otestovat, jestli soubor je na whitelistu? 
   echo "spojit soubory" $ROOT$CONFIG $ROOT$PRINTER "pro" $ROOT$file
-  /home/merge_slic3r_conf.sh -m $CONFIG $PRINTER -o 
+  /home/merge_slic3r_conf.sh -m $ROOT$CONFIG $ROOT$PRINTER -o $ROOT$file
   echo "vyslicovat spojeny"
   echo "" > out/gcode/$(base $file).gcode;
   echo "" > out/ini/$(base $file).ini;
