@@ -22,14 +22,28 @@ for file in $FILES; do
   GCODE_OUT=$ROOT/out/gcode/$(basename ${file%.*}).gcode
   
   echo "Changed sliceable file:" $OUT
-  #TODO: otestovat, jestli soubor je na whitelistu?
   
-  echo "spojit soubory" $ROOT$CONFIG $ROOT$PRINTER "pro" $INIOUT
-  /home/merge_slic3r_conf.sh -m $ROOT$CONFIG -p $ROOT$PRINTER -o $INI_OUT
+  # zjistit, jestli STL je na whitelistu
+  if echo $P| grep -zw "/hw" > /dev/null; then 
+    echo "Ano, muzu slicovat";
+  else
+    echo "Preskakuji";
+    break;
+  fi
+  
+  # Zakladni .ini
+  MERGE_PARAM="-p $ROOT$CONFIG"
+  ## Existuje konfigurace pro tiskornu??
+  if [ -f "$ROOT$$PRINTER" ]; then
+    MERGE_PARAM=$MERGE_PARAM+" -p $ROOT$PRINTER"
+  fi
+  MERGE_PARAM=$MERGE_PARAM+" -o $INI_OUT"
+  
+  echo "spojit soubory" $MERGE_PARAM
+  /home/merge_slic3r_conf.sh $MERGE_PARAM
   echo "konfigurace spojeny"
-  echo "gcode:" $GCODE_OUT;
-  echo "ini" $INI_OUT;
   
+  echo "gcode:" $GCODE_OUT;
   slic3r --no-gui --load $INI_OUT --output $GCODE_OUT $file
   #echo "" > out/gcode/$file.gcode
   #echo "" > out/ini/$file.ini
