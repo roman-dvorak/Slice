@@ -39,14 +39,14 @@ for file in $FILES; do
 #   fi
   
   # Zakladni .ini
-  MERGE_PARAM="-p $ROOT$CONFIG"
+  MERGE_PARAM="-p "$ROOT$CONFIG
   ## Existuje konfigurace pro tiskornu??
   if [ -f "$ROOT$$PRINTER" ]; then
-    MERGE_PARAM=$MERGE_PARAM -p $ROOT$PRINTER
+    MERGE_PARAM=$MERGE_PARAM" -p "$ROOT$PRINTER
   fi
-  MERGE_PARAM=$MERGE_PARAM -o $INI_OUT
+  MERGE_PARAM=$MERGE_PARAM" -o "$INI_OUT
   
-  echo "spojit soubory" $MERGE_PARAM
+  echo "spojit soubory" `$MERGE_PARAM`
   /home/merge_slic3r_conf.sh $MERGE_PARAM
   echo "konfigurace spojeny"
   
