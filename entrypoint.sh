@@ -46,7 +46,7 @@ for file in $FILES; do
   fi
   MERGE_PARAM=$MERGE_PARAM" -o "$INI_OUT
   
-  echo "spojit soubory" `$MERGE_PARAM`
+  echo "spojit soubory"
   /home/merge_slic3r_conf.sh $MERGE_PARAM
   echo "konfigurace spojeny"
   
