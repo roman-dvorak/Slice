@@ -8,6 +8,7 @@ RUN pip3 install shyaml
 # RUN slic3r --version
 
 ADD slice.py /home/slice.py
+ADD merge_slic3r_conf.sh /home/merge_slic3r_conf.sh
 
 #ENTRYPOINT ["python3"]
 #CMD ["/home/slice.py"]
