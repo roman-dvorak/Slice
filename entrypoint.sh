@@ -28,7 +28,7 @@ for file in $FILES; do
   INI_OUT=$ROOT/out/ini/$(basename ${file%.*}).ini
   GCODE_OUT=$ROOT/out/gcode/$(basename ${file%.*}).gcode
   
-  echo "Changed sliceable file:" $OUT
+  echo "Changed sliceable file:" $file
   
   # zjistit, jestli STL je na whitelistu
   if echo $P| grep -zw "/hw" > /dev/null; then 
