@@ -9,21 +9,23 @@ inputs:
   printer:
     description: 'Printer'
     required: true
-    default: 'default_printer.ini'
-  src_folder:
+    default: 'default'
+  folders:
     description: 'Folder with STL/AMF files'
     required: false
-    default: 'stl'
-  dst_folder:
-    description: 'Output'
+    default: 'stl/'
+  default_ini:
+    description: 'Default slicing ini file'
     required: false
-    default: 'gcode'
+    default: 'default.ini'
 runs:
   using: "docker"
   image: "Dockerfile"
   args:
   #- "/home/slice.py"
   - "${{ inputs.printer }}"
+  - "${{ inputs.folders }}"
+  - "${{ inputs.default_ini }}"
   #- "--config=${{ github.workspace }}/${{ inputs.configuration }}"
   #- "--src_folder=${{ github.workspace }}/${{ inputs.src_folder }}"
   #- "--dst_folder=${{ github.workspace }}/${{ inputs.dst_folder }}"
