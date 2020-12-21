@@ -2,6 +2,7 @@
 echo "Spoustim s nastavenim" $1
 
 cd /github/workspace
+ROOT=/github/workspace/
 
 mkdir out
 mkdir out/gcode
@@ -21,7 +22,7 @@ for file in $FILES; do
   
   echo "Changed sliceable file:" $file;
   # otestovat, jestli soubor je na whitelistu? 
-  echo "spojit soubory" $CONFIG $PRINTER "pro" $file
+  echo "spojit soubory" $ROOT$CONFIG $ROOT$PRINTER "pro" $ROOT$file
   /home/merge_slic3r_conf.sh -m $CONFIG $PRINTER -o 
   echo "vyslicovat spojeny"
   echo "" > out/gcode/$(base $file).gcode;
