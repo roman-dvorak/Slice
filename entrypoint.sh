@@ -31,12 +31,12 @@ for file in $FILES; do
   echo "Changed sliceable file:" $file
   
   # zjistit, jestli STL je na whitelistu
-  if echo $P| grep -zw "/hw" > /dev/null; then 
-    echo "Ano, muzu slicovat";
-  else
-    echo "Preskakuji";
-    break;
-  fi
+#   if echo $file| grep -zw "/hw" > /dev/null; then 
+#     echo "Ano, muzu slicovat";
+#   else
+#     echo "Preskakuji";
+#     break;
+#   fi
   
   # Zakladni .ini
   MERGE_PARAM="-p $ROOT$CONFIG"
