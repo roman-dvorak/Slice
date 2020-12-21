@@ -18,15 +18,19 @@ WHITEPATH=$(cat slice.yml | shyaml get-values path);
 for file in $FILES; do
   CONFIG=$(cat slice.yml | shyaml get-value default.config);
   PRINTER=$(dirname $(cat slice.yml | shyaml get-value default.config))"/printer."$1".ini";
-  OUT=/out/ini/$(basename $file).ini
+  INI_OUT=$ROOT/out/ini/$(basename {file%.*})
+  GCODE_OUT=$ROOT/out/gcode/$(basename {file%.*})
   
   echo "Changed sliceable file:" $OUT
-  # otestovat, jestli soubor je na whitelistu? 
-  echo "spojit soubory" $ROOT$CONFIG $ROOT$PRINTER "pro" $ROOT$OUT
-  /home/merge_slic3r_conf.sh -m $ROOT$CONFIG -p $ROOT$PRINTER -o $ROOT$OUT
+  #TODO: otestovat, jestli soubor je na whitelistu?
+  
+  echo "spojit soubory" $ROOT$CONFIG $ROOT$PRINTER "pro" $INIOUT
+  /home/merge_slic3r_conf.sh -m $ROOT$CONFIG -p $ROOT$PRINTER -o $INIOUT
   echo "konfigurace spojeny"
-  echo "gcode:" $ROOT/out/gcode/$(basename $file).gcode;
-  echo "ini" $ROOT/out/ini/$(basename $file).ini;
+  echo "gcode:" $GCODE_OUT;
+  echo "ini" $INI_OUT;
+  
+  slic3r --no-gui --load $INI_OUT --output $GCODE_OUT $file
   #echo "" > out/gcode/$file.gcode
   #echo "" > out/ini/$file.ini
   
