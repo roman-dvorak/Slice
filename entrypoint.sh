@@ -17,10 +17,12 @@ WHITEPATH=$(cat slice.yml | shyaml get-values path);
 for file in $FILES; do
   CONFIG=$(cat slice.yml | shyaml get-value default.config);
   PRINTER=$(dirname $(cat slice.yml | shyaml get-value default.config))"/printer."$1".ini";
+  OUT=/out/ini/$file.ini
   
   echo "Changed sliceable file:" $file;
   # otestovat, jestli soubor je na whitelistu? 
   echo "spojit soubory" $CONFIG $PRINTER "pro" $file
+  /home/merge_slic3r_conf.sh -m $CONFIG $PRINTER -o 
   echo "vyslicovat spojeny"
   echo "" > out/gcode/$(base $file).gcode;
   echo "" > out/ini/$(base $file).ini;
