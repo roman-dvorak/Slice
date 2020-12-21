@@ -17,7 +17,7 @@ mkdir out/ini
 
 #FILES=$(git diff --name-only HEAD~1 | sort -u | grep '.stl\|.amf\|.STL\|.AMF');
 #FILES="/hw/CAD/stl/RPM_case.stl";
-FILES=$(find hw | sort -u | grep '\.stl\|\.amf\|\.STL\|\.AMF')
+FILES=$(find . | sort -u | grep '\.stl\|\.amf\|\.STL\|\.AMF')
 
 CFG='slice.yml';
 WHITEPATH=$(cat slice.yml | shyaml get-values path);
