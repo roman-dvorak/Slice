@@ -18,8 +18,8 @@ WHITEPATH=$(cat slice.yml | shyaml get-values path);
 for file in $FILES; do
   CONFIG=$(cat slice.yml | shyaml get-value default.config);
   PRINTER=$(dirname $(cat slice.yml | shyaml get-value default.config))"/printer."$1".ini";
-  INI_OUT=$ROOT/out/ini/$(basename {file%.*})
-  GCODE_OUT=$ROOT/out/gcode/$(basename {file%.*})
+  INI_OUT=$ROOT/out/ini/$(basename ${file%.*})
+  GCODE_OUT=$ROOT/out/gcode/$(basename ${file%.*})
   
   echo "Changed sliceable file:" $OUT
   #TODO: otestovat, jestli soubor je na whitelistu?
