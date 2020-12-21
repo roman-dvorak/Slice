@@ -1,4 +1,10 @@
 #!/bin/sh -l
+##
+## printer
+## folders - list of folders where to search
+## model default ini
+
+
 echo "PARAMETRY>" $@
 echo "Spoustim s nastavenim" $1
 
