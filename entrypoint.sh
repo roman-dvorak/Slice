@@ -1,4 +1,5 @@
 #!/bin/sh -l
+echo "PARAMETRY>" $@
 echo "Spoustim s nastavenim" $1
 
 cd /github/workspace
@@ -43,8 +44,8 @@ for file in $FILES; do
   /home/merge_slic3r_conf.sh $MERGE_PARAM
   echo "konfigurace spojeny"
   
-  echo "gcode:" $GCODE_OUT;
-  slic3r --no-gui --load $INI_OUT --output $GCODE_OUT $file
+  #echo "gcode:" $GCODE_OUT;
+  #slic3r --no-gui --load $INI_OUT --output $GCODE_OUT $file
   #echo "" > out/gcode/$file.gcode
   #echo "" > out/ini/$file.ini
   
