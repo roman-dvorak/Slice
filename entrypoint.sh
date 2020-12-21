@@ -2,7 +2,7 @@
 echo "Spoustim s nastavenim" $1
 
 cd /github/workspace
-ROOT=/github/workspace/
+ROOT=/github/workspace
 
 mkdir out
 mkdir out/gcode
