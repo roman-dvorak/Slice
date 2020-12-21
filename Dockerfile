@@ -16,4 +16,5 @@ ADD merge_slic3r_conf.sh /home/merge_slic3r_conf.sh
 
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
+RUN chmod +x /home/merge_slic3r_conf.sh
 ENTRYPOINT ["/entrypoint.sh"]
