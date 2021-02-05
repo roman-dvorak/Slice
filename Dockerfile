@@ -3,7 +3,8 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update -y 
 #; apt-get install -y slic3r
-RUN apt-get install -y python3-yaml git python3-pip slic3r snap shyaml
+RUN apt-get install -y python3-yaml git python3-pip 
+RUN apt-get install slic3r snap shyaml
 RUN snap install openscad-nightly
 # RUN slic3r --version
 RUN openscad-nightly --version
