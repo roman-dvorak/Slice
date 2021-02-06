@@ -29,7 +29,7 @@ for file in $FILES; do
 #   CONFIG=$(cat slice.yml | shyaml get-value default.config);
 #   PRINTER=$(dirname $(cat slice.yml | shyaml get-value default.config))"/printer."$1".ini";
 #   INI_OUT=$ROOT/out/ini/$(basename ${file%.*}).ini
-#   GCODE_OUT=$ROOT/out/gcode/$(basename ${file%.*}).gcode
+STL_OUT=$ROOT/out/stl/$(basename ${file%.*}).stl
   
   echo "Changed render:" $file
   
@@ -40,6 +40,9 @@ for file in $FILES; do
 #     echo "Preskakuji";
 #     break;
 #   fi
+
+
+  openscad -o $STL_OUT -D week=$(date +%V) $file
   
   # Zakladni .ini
 #   MERGE_PARAM="-p "$ROOT$CONFIG
