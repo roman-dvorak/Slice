@@ -43,7 +43,7 @@ STL_OUT=$ROOT/out/stl/$(basename ${file%.*}).stl
 
 
   openscad -o $STL_OUT -D week=$(date +%V) $file
-  
+  echo "render done"
   # Zakladni .ini
 #   MERGE_PARAM="-p "$ROOT$CONFIG
 #   ## Existuje konfigurace pro tiskornu??
