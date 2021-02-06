@@ -8,19 +8,20 @@
 echo "PARAMETRY>" $@
 echo "Spoustim s nastavenim" $1
 
-( set -o posix ; set ) | less
+env
 
 cd /github/workspace
 ROOT=/github/workspace
 
 mkdir out
-mkdir out/gcode
-mkdir out/ini
+mkdir out/stl
+mkdir out/amf
 
 #FILES=$(git diff --name-only HEAD~1 | sort -u | grep '.scad\|.SCAD');
 #FILES="/hw/CAD/stl/RPM_case.stl";
 FILES=$(find . | sort -u | grep '\.SCAD\|\.scad')
 
+echo "Soubory:" $FILES
 #CFG='slice.yml';
 #WHITEPATH=$(cat render.yml | shyaml get-values path);
 
