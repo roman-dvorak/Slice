@@ -16,7 +16,7 @@ ADD merge_slic3r_conf.sh /home/merge_slic3r_conf.sh
 #CMD ["/home/slice.py"]
 
 RUN chmod +x /home/merge_slic3r_conf.sh
-RUN chmod +x render.sh
+# RUN chmod +x render.sh
 
 ADD entrypoint.sh /entrypoint.sh
 ADD render.sh /render.sh
